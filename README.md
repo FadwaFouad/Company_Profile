@@ -1,6 +1,9 @@
-# flutter_project
+# Company_profile page
 
-A new Flutter project.
+A Flutter project view comapny profile page.
+
+![company](https://user-images.githubusercontent.com/24944117/203262245-fcbb14b8-fa89-49be-988a-9541e162970a.jpg)
+
 
 ## Getting Started
 
