@@ -51,50 +51,55 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Statistics(),
             ),
             const Goals(),
+            const BottomNav(),
           ],
         )));
   }
 }
 
-@override
-Widget build(BuildContext context) {
-  return Container(
-    color: Colors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.grey.shade300,
+class BottomNav extends StatelessWidget {
+  const BottomNav({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.grey.shade300,
+            ),
+            child: const Icon(
+              Icons.home_outlined,
+              size: 30,
+              color: Colors.black87,
+            ),
           ),
-          child: const Icon(
-            Icons.home_outlined,
+          const Icon(
+            Icons.pie_chart_rounded,
             size: 30,
-            color: Colors.black87,
+            color: Colors.grey,
           ),
-        ),
-        const Icon(
-          Icons.pie_chart_rounded,
-          size: 30,
-          color: Colors.grey,
-        ),
-        const Icon(
-          Icons.calendar_month_sharp,
-          size: 30,
-          color: Colors.grey,
-        ),
-        const Icon(
-          Icons.person_outline,
-          size: 30,
-          color: Colors.grey,
-        ),
-      ],
-    ),
-  );
+          const Icon(
+            Icons.calendar_month_sharp,
+            size: 30,
+            color: Colors.grey,
+          ),
+          const Icon(
+            Icons.person_outline,
+            size: 30,
+            color: Colors.grey,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class Goals extends StatelessWidget {
@@ -103,77 +108,101 @@ class Goals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
-        width: MediaQuery.of(context).size.width,
-        child: Column(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
+      width: MediaQuery.of(context).size.width,
+      child: Column(children: [
+        const SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Company Goals",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                const Text(
-                  "ALL",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
+            Text(
+              "Company Goals",
+              style: Theme.of(context).textTheme.headline6,
             ),
-            const SizedBox(height: 15),
+            const Text(
+              "ALL",
+              style: TextStyle(color: Colors.grey),
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          children: [
             Container(
-              padding: EdgeInsets.all(10),
+              width: 12,
+              height: MediaQuery.of(context).size.width * 0.50,
               decoration: BoxDecoration(
-                border: Border.all(width: 2),
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.green.shade800,
+                    Color.fromARGB(255, 33, 34, 33),
+                    Colors.green.shade300,
+                    Colors.amberAccent.shade200,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.check_circle,
-                            size: 15,
-                          ),
-                          SizedBox(width: 3),
-                          Text("Cybersecurity Teams")
-                        ],
-                      ),
-                      Text("Active",
-                          style: TextStyle(color: Colors.grey.shade500))
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Conduct Phishing Simulations Between Companies",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Divider(
-                    color: Colors.grey.shade600,
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time_outlined,
-                        color: Colors.grey,
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        "Ends in 24 days",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.85,
+              height: MediaQuery.of(context).size.width * 0.50,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_circle,
+                              size: 15,
+                            ),
+                            SizedBox(width: 3),
+                            Text("Cybersecurity Teams")
+                          ],
+                        ),
+                        Text("Active",
+                            style: TextStyle(color: Colors.grey.shade500))
+                      ],
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      "Conduct Phishing Simulations Between Companies",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                    Divider(
+                      color: Colors.grey.shade600,
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.access_time_outlined,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          "Ends in 24 days",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
-        ));
+        )
+      ]),
+    );
   }
 }
 
@@ -399,10 +428,19 @@ class Profile extends StatelessWidget {
             ],
           ),
         ),
-        Icon(
-          Icons.people,
-          color: Colors.green.shade800,
-        ),
+        Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+              border: Border.all(
+                width: 2.5,
+              ),
+              borderRadius: BorderRadius.circular(5)),
+          child: Image.asset(
+            "images/profile.jpeg",
+            fit: BoxFit.cover,
+          ),
+        )
       ],
     );
   }
